@@ -1,4 +1,4 @@
-import Button from "./Button";
+import { Button } from "@mui/material";
 
 function App() {
     return (
@@ -8,7 +8,9 @@ function App() {
                     Edit <code>src/App.js</code> and save to reload.
                 </p>
                 <a href="https://reactjs.org">Learn React</a>
-                <Button>Hello World!</Button>
+                <Button variant="contained" color="primary">
+                    Hello World
+                </Button>
             </header>
         </div>
     );

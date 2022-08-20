@@ -10,5 +10,5 @@ SentiCart is Green Module Systems' smart shopping cart project. This is the moni
 
 ## Developers
 
--   Jarl Sarmiento
+-   [Jarl Sarmiento](https://github.com/jksarmiento/)
 -   Steve Mendoza

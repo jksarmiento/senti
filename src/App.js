@@ -1,18 +1,20 @@
-import { Button } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./layouts/Layout";
+import Dashboard from "./pages/Dashboard";
+import Logs from "./pages/Logs";
+import NoPage from "./pages/NoPage";
 
 function App() {
     return (
-        <div>
-            <header>
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a href="https://reactjs.org">Learn React</a>
-                <Button variant="contained" color="primary">
-                    Hello World
-                </Button>
-            </header>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Dashboard />} />
+                    <Route path="logs" element={<Logs />} />
+                    <Route path="*" element={<NoPage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 

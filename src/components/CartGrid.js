@@ -9,7 +9,7 @@ function CartGrid(props) {
             const getCarts = () => {
                 const axios = require("axios");
                 axios
-                    .get("http://senticartapi.herokuapp.com/api/v1/carts")
+                    .get("https://senticartapi.herokuapp.com/api/v1/carts")
                     .then(function (response) {
                         setCarts(response.data);
                     })

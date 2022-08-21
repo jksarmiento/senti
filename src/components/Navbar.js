@@ -48,7 +48,7 @@ function Navbar() {
                                                     item.to === current
                                                         ? "bg-slate-900 text-slate-200"
                                                         : "text-slate-400 hover:bg-slate-700 hover:text-slate-50") +
-                                                    " text-md rounded-md px-3 py-2 font-medium"
+                                                    " text-md rounded-t-md px-3 py-2 font-medium"
                                                 }
                                                 aria-current={
                                                     item.current

@@ -7,7 +7,7 @@ function Header(props) {
             }
         >
             <div className="py-5 px-4 sm:px-6 lg:px-8">
-                <h1 className="text-2xl text-slate-200">Dashboard</h1>
+                <h1 className="text-2xl text-slate-200">{props.value}</h1>
             </div>
         </header>
     );

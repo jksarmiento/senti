@@ -5,14 +5,23 @@ import CartGrid from "../components/CartGrid";
 
 function Dashboard() {
     const [monitoring, setMonitoring] = useState(true);
+    const [amount, setAmount] = useState(10);
 
     return (
         <div className="py-6 px-4 text-slate-200 sm:px-6 lg:px-8">
             <div className="flex justify-between">
-                <h2 className="text-xl">Carts</h2>
+                <div className="flex items-center">
+                    <h2 className="mr-4 text-xl">Carts</h2>
+                    <input
+                        type="number"
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value)}
+                        className="w-14 rounded-md border border-sky-700 bg-slate-800 py-1 pl-2 pr-1 text-slate-100 shadow-sm outline-0 focus:border-sky-300 focus:ring-2 focus:ring-sky-300 focus:ring-opacity-50"
+                    />
+                </div>
                 <Switch.Group>
                     <div className="flex items-center">
-                        <Switch.Label className="mr-4">
+                        <Switch.Label className="mr-4 hidden sm:block">
                             Real-time Monitoring
                         </Switch.Label>
                         <Switch
@@ -35,8 +44,11 @@ function Dashboard() {
                     </div>
                 </Switch.Group>
             </div>
-            <div className="mt-4">
-                <CartGrid monitor={monitoring} />
+            <div className="my-4">
+                <CartGrid monitor={monitoring} amount={amount} />
+            </div>
+            <div>
+                <h2 className="text-xl">Location</h2>
             </div>
         </div>
     );

@@ -12,7 +12,9 @@ function Logs() {
             const getStatusLogs = () => {
                 const axios = require("axios");
                 axios
-                    .get("http://192.168.0.154:8000/api/v1/log_statuses")
+                    .get(
+                        "https://senticartapi.herokuapp.com/api/v1/log_statuses"
+                    )
                     .then(function (response) {
                         setStatusLogs(response.data);
                     })
@@ -22,7 +24,9 @@ function Logs() {
             const getLocationLogs = () => {
                 const axios = require("axios");
                 axios
-                    .get("http://192.168.0.154:8000/api/v1/log_locations")
+                    .get(
+                        "https://senticartapi.herokuapp.com/api/v1/log_locations"
+                    )
                     .then(function (response) {
                         setLocationLogs(response.data);
                     })

@@ -45,32 +45,30 @@ function Logs() {
 
     return (
         <div className="py-6 px-4 text-slate-200 sm:px-6 lg:px-8">
-            <div className="flex flex-row-reverse">
-                <Switch.Group>
-                    <div className="flex items-center">
-                        <Switch.Label className="mr-4 hidden sm:block">
-                            Real-time Monitoring
-                        </Switch.Label>
-                        <Switch
-                            checked={monitoring}
-                            onChange={setMonitoring}
+            <Switch.Group>
+                <div className="mb-4 flex items-center">
+                    <Switch
+                        checked={monitoring}
+                        onChange={setMonitoring}
+                        className={
+                            (monitoring ? "bg-sky-500" : "bg-slate-600") +
+                            " relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                        }
+                    >
+                        <span
                             className={
-                                (monitoring ? "bg-sky-500" : "bg-slate-600") +
-                                " relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                                (monitoring
+                                    ? "translate-x-6"
+                                    : "translate-x-1") +
+                                " inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
                             }
-                        >
-                            <span
-                                className={
-                                    (monitoring
-                                        ? "translate-x-6"
-                                        : "translate-x-1") +
-                                    " inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
-                                }
-                            ></span>
-                        </Switch>
-                    </div>
-                </Switch.Group>
-            </div>
+                        ></span>
+                    </Switch>
+                    <Switch.Label className="ml-2 hidden sm:block">
+                        Real-time Monitoring
+                    </Switch.Label>
+                </div>
+            </Switch.Group>
             <Tab.Group manual>
                 <Tab.List className="flex space-x-1 border-b border-b-sky-700 px-1 pt-1">
                     <Tab

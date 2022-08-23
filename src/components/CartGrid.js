@@ -4,18 +4,19 @@ import CartCard from "./CartCard";
 function CartGrid(props) {
     const [carts, setCarts] = useState([]);
 
+    const getCarts = () => {
+        const axios = require("axios");
+        axios
+            .get("https://senticartapi.herokuapp.com/api/v1/carts")
+            .then(function (response) {
+                setCarts(response.data);
+            })
+            .catch(function (error) {})
+            .then(function () {});
+    };
+
     useEffect(() => {
         if (props.monitor) {
-            const getCarts = () => {
-                const axios = require("axios");
-                axios
-                    .get("https://senticartapi.herokuapp.com/api/v1/carts")
-                    .then(function (response) {
-                        setCarts(response.data);
-                    })
-                    .catch(function (error) {})
-                    .then(function () {});
-            };
             getCarts();
             var interval = setInterval(getCarts, 3000);
         }

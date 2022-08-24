@@ -1,0 +1,14 @@
+import { useState } from "react";
+import { Switch } from "@headlessui/react";
+import CartGrid from "../components/CartGrid";
+import LocationGrid from "../components/LocationGrid";
+
+function Settings() {
+    return (
+        <div className="py-6 px-4 text-slate-200 sm:px-6 lg:px-8">
+            <h1>Settings</h1>
+        </div>
+    );
+}
+
+export default Settings;

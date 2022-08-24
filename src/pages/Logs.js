@@ -1,40 +1,41 @@
 import { useState, useEffect } from "react";
 import { Tab, Switch } from "@headlessui/react";
+import { DotsHorizontalIcon } from "@heroicons/react/solid";
 import LogsTable from "../components/LogsTable";
 
 function Logs() {
-    const [monitoring, setMonitoring] = useState(true);
+    const [loaded, setLoaded] = useState(false);
+    const [monitoring, setMonitoring] = useState(false);
     const [statusLogs, setStatusLogs] = useState([]);
     const [locationLogs, setLocationLogs] = useState([]);
 
+    const droot = "https://senticartapi.herokuapp.com";
+
+    const getStatusLogs = () => {
+        const axios = require("axios");
+        axios
+            .get(droot + "/api/v1/log_statuses")
+            .then(function (response) {
+                setStatusLogs(response.data);
+            })
+            .catch(function (error) {})
+            .then(function () {});
+    };
+    const getLocationLogs = () => {
+        const axios = require("axios");
+        axios
+            .get(droot + "/api/v1/log_locations")
+            .then(function (response) {
+                setLocationLogs(response.data);
+                setLoaded(true);
+            })
+            .catch(function (error) {})
+            .then(function () {});
+    };
     useEffect(() => {
+        getStatusLogs();
+        getLocationLogs();
         if (monitoring) {
-            const getStatusLogs = () => {
-                const axios = require("axios");
-                axios
-                    .get(
-                        "https://senticartapi.herokuapp.com/api/v1/log_statuses"
-                    )
-                    .then(function (response) {
-                        setStatusLogs(response.data);
-                    })
-                    .catch(function (error) {})
-                    .then(function () {});
-            };
-            const getLocationLogs = () => {
-                const axios = require("axios");
-                axios
-                    .get(
-                        "https://senticartapi.herokuapp.com/api/v1/log_locations"
-                    )
-                    .then(function (response) {
-                        setLocationLogs(response.data);
-                    })
-                    .catch(function (error) {})
-                    .then(function () {});
-            };
-            getStatusLogs();
-            getLocationLogs();
             var interval = setInterval(() => {
                 getStatusLogs();
                 getLocationLogs();
@@ -92,14 +93,21 @@ function Logs() {
                         Location
                     </Tab>
                 </Tab.List>
-                <Tab.Panels>
-                    <Tab.Panel>
-                        <LogsTable type="status" logs={statusLogs} />
-                    </Tab.Panel>
-                    <Tab.Panel>
-                        <LogsTable type="location" logs={locationLogs} />
-                    </Tab.Panel>
-                </Tab.Panels>
+                {!loaded && (
+                    <div className="mt-4 flex animate-pulse items-center justify-center">
+                        <DotsHorizontalIcon className="w-8" />
+                    </div>
+                )}
+                {loaded && (
+                    <Tab.Panels>
+                        <Tab.Panel>
+                            <LogsTable type="status" logs={statusLogs} />
+                        </Tab.Panel>
+                        <Tab.Panel>
+                            <LogsTable type="location" logs={locationLogs} />
+                        </Tab.Panel>
+                    </Tab.Panels>
+                )}
             </Tab.Group>
         </div>
     );

@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
-// import PaginatedTable from "../components/PaginatedTable";
 import CartGrid from "../components/CartGrid";
 import LocationGrid from "../components/LocationGrid";
 
 function Dashboard() {
-    const [monitoring, setMonitoring] = useState(true);
+    const [monitoring, setMonitoring] = useState(false);
     const [amount, setAmount] = useState(10);
 
     return (
@@ -37,21 +36,26 @@ function Dashboard() {
             <div className="flex justify-between">
                 <div className="flex items-center">
                     <h2 className="mr-4 text-xl">Carts</h2>
+                </div>
+                <label>
+                    Rows
                     <input
                         type="number"
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
-                        className="w-14 rounded-md border border-sky-700 bg-slate-800 py-1 pl-2 pr-1 text-slate-100 shadow-sm outline-0 focus:border-sky-300 focus:ring-2 focus:ring-sky-300 focus:ring-opacity-50"
+                        className="ml-2 w-14 rounded-md border border-sky-700 bg-slate-800 py-1 pl-2 pr-1 text-slate-100 shadow-sm outline-0 focus:border-sky-300 focus:ring-2 focus:ring-sky-300 focus:ring-opacity-50"
+                        min="1"
+                        max="10"
                     />
-                </div>
+                </label>
             </div>
             <div className="my-4">
                 <CartGrid monitor={monitoring} amount={amount} />
             </div>
             <div>
-                <h2 className="text-xl">Location</h2>
+                <h2 className="text-xl">Locations</h2>
             </div>
-            <div>
+            <div className="mt-4">
                 <LocationGrid monitor={monitoring} />
             </div>
         </div>

@@ -9,7 +9,7 @@ function LocationCard(props) {
                     CARTS
                 </h1>
                 {props.carts.map((cart) => (
-                    <p>
+                    <p key={cart.id}>
                         <span className="mx-1 rounded-md bg-slate-800 px-3 text-sm font-bold shadow">
                             {cart.id}
                         </span>

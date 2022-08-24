@@ -8,7 +8,7 @@ const navigation = [
     { name: "Logs", to: "/logs", current: false },
 ];
 const userNavigation = [
-    { name: "Settings", to: "/logs" },
+    { name: "Settings", to: "/settings" },
     { name: "Sign Out", to: "/" },
 ];
 
@@ -18,6 +18,15 @@ function Navbar() {
 
     useEffect(() => {
         for (let item of navigation) {
+            if (item.to === location.pathname) {
+                item.current = true;
+                setCurrent(location.pathname); // does nothing currently but re-renders the virtual DOM after useEffect runs which updates the nav links
+            } else {
+                item.current = false;
+            }
+        }
+
+        for (let item of userNavigation) {
             if (item.to === location.pathname) {
                 item.current = true;
                 setCurrent(location.pathname); // does nothing currently but re-renders the virtual DOM after useEffect runs which updates the nav links

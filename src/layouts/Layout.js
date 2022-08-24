@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
 
-const headers = ["Dashboard", "Logs"];
+const headers = ["Dashboard", "Logs", "Settings"];
 
 function Layout() {
     const border = true;
@@ -17,6 +17,9 @@ function Layout() {
                 break;
             case "/logs":
                 setHeader(headers[1]);
+                break;
+            case "/settings":
+                setHeader(headers[2]);
                 break;
             default:
         }

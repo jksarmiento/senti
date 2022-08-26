@@ -28,7 +28,7 @@ function Dashboard() {
                             }
                         ></span>
                     </Switch>
-                    <Switch.Label className="ml-2 hidden sm:block">
+                    <Switch.Label className="ml-2 block">
                         Real-time Monitoring
                     </Switch.Label>
                 </div>
@@ -37,7 +37,7 @@ function Dashboard() {
                 <div className="flex items-center">
                     <h2 className="mr-4 text-xl">Carts</h2>
                 </div>
-                <label>
+                {/* <label>
                     Rows
                     <input
                         type="number"
@@ -47,7 +47,7 @@ function Dashboard() {
                         min="1"
                         max="10"
                     />
-                </label>
+                </label> */}
             </div>
             <div className="my-4">
                 <CartGrid monitor={monitoring} amount={amount} />

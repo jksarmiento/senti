@@ -8,6 +8,13 @@ function LocationCard(props) {
                 <h1 className="border-b border-sky-500 text-xs font-bold">
                     CARTS
                 </h1>
+                {props.carts.length === 0 && (
+                    <p>
+                        <span className="mx-1 rounded-md bg-slate-800 px-3 text-sm font-bold shadow">
+                            EMPTY
+                        </span>
+                    </p>
+                )}
                 {props.carts.map((cart) => (
                     <p key={cart.id}>
                         <span className="mx-1 rounded-md bg-slate-800 px-3 text-sm font-bold shadow">

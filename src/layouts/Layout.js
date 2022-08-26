@@ -1,11 +1,11 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, Navigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
 
 const headers = ["Dashboard", "Logs", "Settings"];
 
-function Layout() {
+function Layout({ auth }) {
     const border = true;
     const [header, setHeader] = useState("");
     const location = useLocation();
@@ -27,6 +27,8 @@ function Layout() {
 
     return (
         <div className="min-h-full font-sans">
+            {!auth && <Navigate to="/login" replace={true} />}
+
             <Navbar />
             <Header border={border} value={header} />
             <main

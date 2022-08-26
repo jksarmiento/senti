@@ -4,7 +4,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 const navigation = [
-    { name: "Dashboard", to: "/", current: true },
+    { name: "Dashboard", to: "/dashboard", current: true },
     { name: "Logs", to: "/logs", current: false },
 ];
 const userNavigation = [

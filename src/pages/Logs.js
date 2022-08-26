@@ -65,7 +65,7 @@ function Logs() {
                             }
                         ></span>
                     </Switch>
-                    <Switch.Label className="ml-2 hidden sm:block">
+                    <Switch.Label className="ml-2 block">
                         Real-time Monitoring
                     </Switch.Label>
                 </div>

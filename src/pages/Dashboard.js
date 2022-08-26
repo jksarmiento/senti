@@ -5,7 +5,7 @@ import LocationGrid from "../components/LocationGrid";
 
 function Dashboard() {
     const [monitoring, setMonitoring] = useState(false);
-    const [amount, setAmount] = useState(10);
+    // const [amount, setAmount] = useState(10);
 
     return (
         <div className="py-6 px-4 text-slate-200 sm:px-6 lg:px-8">
@@ -50,7 +50,7 @@ function Dashboard() {
                 </label> */}
             </div>
             <div className="my-4">
-                <CartGrid monitor={monitoring} amount={amount} />
+                <CartGrid monitor={monitoring} />
             </div>
             <div>
                 <h2 className="text-xl">Locations</h2>
